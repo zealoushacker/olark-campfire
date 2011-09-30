@@ -13,6 +13,7 @@ olark-campfire gemset in rvm
 Approach
 
 v0.1
+http://ben.langfeld.me/stateful-fun-heroku.html
 Write a simple XMPP client with Blather
 Connect it to our oLark chat server
 Route chats that come through to XMPP client to a pre-created Campfire room
