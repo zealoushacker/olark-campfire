@@ -6,21 +6,25 @@ Dependencies
 
 oLark account
 Campfire account
-Blather XMPP/Jabber Library(https://github.com/sprsquish/blather)
 Campfire API; possibly use broach (https://github.com/Manfred/broach)
 olark-campfire gemset in rvm
+  gems in Gemfile
 
 Approach
 
 v0.1
-http://ben.langfeld.me/stateful-fun-heroku.html
-Write a simple XMPP client with Blather
-Connect it to our oLark chat server
-Route chats that come through to XMPP client to a pre-created Campfire room
+Create an oLark interface
+Create a Campfire interface
+Set up a Starling message queue
+
+oLark interface places messages on the queue
+oLark interface checks for messages on the queue put there by Campfire interface
+
+Campfire interface places messages on the queue
+Campfire interface checks for messages on the queue put there by Campfire interface
 
 v0.2
-Set up a heroku celadon cedar stack (as described in http://ben.langfeld.me/stateful-fun-heroku.html).
-Push above app to the heroku stack and test that everything still works
+?
 
 v0.3
 ?
