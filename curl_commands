@@ -1,2 +1,6 @@
-curl -sslv3 -u $CF_TOKEN:X -H 'Content-Type: application/xml' -d '<message><body>API Hello</body></message>' https://bizeebee.campfirenow.com/room/442011/speak.xml
-curl -d "name=one_more&commit=Sign%20in" https://bizeebee.campfirenow.com/{ROOM_ID} -sslv3 -L https://bizeebee.campfirenow.com/room/442011 --cookie cookies.txt
+#This will sign into the chat room, by using the guest access url (the name of the guest account is passed in via the 'name' attribute after the -d switch)
+#It will create a cookies.txt cookie-jar with the session id of the signed in guest account
+curl -sslv3 --cookie cookies.txt --cookie-jar cookies.txt -d "name=snafu&commit=Sign%20in&remember=1" https://bizeebee.campfirenow.com/abd27 -L https://bizeebee.campfirenow.com/room/442011
+
+#This will post a message for the guest session id stored in cookies.txt to the specified chatroom to which the guest is logged in
+curl -sslv3 --cookie cookies.txt -H 'Content-Type: application/xml' -d '<message><body>API Hello</body></message>' https://bizeebee.campfirenow.com/room/442011/speak
