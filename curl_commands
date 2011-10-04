@@ -1,0 +1,2 @@
+curl -sslv3 -u $CF_TOKEN:X -H 'Content-Type: application/xml' -d '<message><body>API Hello</body></message>' https://bizeebee.campfirenow.com/room/442011/speak.xml
+curl -d "name=one_more&commit=Sign%20in" https://bizeebee.campfirenow.com/{ROOM_ID} -sslv3 -L https://bizeebee.campfirenow.com/room/442011 --cookie cookies.txt
