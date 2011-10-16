@@ -12,8 +12,6 @@ class OlarkInterface
   end
 
   def connect
-    puts self.jid
-    puts self.password 
     @client.connect
     @client.auth(@password)
     @client.send(Presence.new.set_type(:available))
