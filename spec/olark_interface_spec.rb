@@ -1,14 +1,23 @@
 require './lib/olark_interface'
 require 'spec_helper'
+require 'xmpp4r'
 
 describe OlarkInterface do
-  it "should get a jid and a password from environment variables" do
-    olark = OlarkInterface.new
-    olark.jid.should == "asdf" #mock_env['OLARK_ID']
-    olark.password.should == "asdf" #mock_env['OLARK_PASSWORD']
+  let(:olark) {OlarkInterface.new}
+
+  it "should assign jid and a password from environment variables" do
+    olark.jid.should == ENV['OLARK_ID']
+    olark.password.should == ENV['OLARK_PASSWORD']
   end
 
-  it "should connect to oLark via xmpp4r with the login credentials"
+  it "should assign an olark client to client" do
+    olark.client.should be_kind_of(Jabber::Client)
+  end
+
+  it "should connect to oLark via xmpp4r with the login credentials" do
+    olark.connect
+    olark.should be_connected 
+  end
 
   it "should listen for messages from oLark" 
 
